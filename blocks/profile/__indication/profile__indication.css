@@ -1,0 +1,4 @@
+.profile__indication {
+    display: flex;
+    flex-direction: column;
+}
