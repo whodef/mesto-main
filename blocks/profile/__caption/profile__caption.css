@@ -1,6 +1,13 @@
 .profile__caption {
-    margin-top: 7px;
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    place-items: baseline;
+}
+
+@media screen and (max-width: 660px) {
+    .profile__caption {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

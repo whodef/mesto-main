@@ -1,4 +1,10 @@
 .profile__indication {
-    display: flex;
-    flex-direction: column;
+    margin: 0 auto;
+    padding: 0;
+}
+
+@media screen and (max-width: 660px) {
+    .profile__indication {
+        padding: 22.25px 0 0;
+    }
 }

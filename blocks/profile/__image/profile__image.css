@@ -2,4 +2,14 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
+    display: flex;
+    justify-self: flex-start;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 660px) {
+    .profile__image {
+        margin: 0 auto;
+        justify-items: center;
+    }
 }

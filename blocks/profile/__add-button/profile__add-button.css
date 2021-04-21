@@ -1,10 +1,10 @@
 .profile__add-button {
-    margin-left: 204px;
+    margin: 0;
     padding: 0;
     background: url(../../../images/add-button-plus.svg) no-repeat center;
     width: 150px;
     height: 50px;
-    border: 2px solid rgb(255, 255, 255);
+    border: 2px solid rgba(255, 255, 255, 1);
     box-sizing: border-box;
     border-radius: 2px;
     outline: none;
@@ -16,17 +16,9 @@
     transition: border .1s ease-in-out;
 }
 
-@media screen and (max-width: 879px) {
+@media screen and (max-width: 660px) {
     .profile__add-button {
-        /*width: 120px;*/
-        /*height: 50px;*/
-        /*margin-left: 10px;*/
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .profile__add-button {
-        /*margin: 30px 0 0;*/
-        /*width: 282px;*/
+        margin: 36px 0 0;
+        width: 282px;
     }
 }

@@ -1,13 +1,11 @@
 .page {
     margin: 0 auto;
     padding: 0;
-    max-width: 1280px;
-    max-height: 1217px;
-    /*color: rgba(255, 255, 255, 1);*/
+    max-width: 880px;
 }
 
 @media screen and (max-width: 320px) {
     .page {
-        max-width: 320px;
+        max-width: 100%;
     }
 }
