@@ -8,17 +8,16 @@
     place-items: center;
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 879px) {
     .profile {
         margin: 0 auto;
-        padding: 40px 0 0;
-        justify-items: center;
-        flex-direction: column;
+        padding: 40px 19px 0;
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 660px) {
     .profile {
-        padding: 39px 19px 0;
+        justify-items: center;
+        flex-direction: column;
     }
 }

@@ -1,12 +1,10 @@
 .cards {
-    max-width: 880px;
     margin: 0 auto;
     padding-top: 47px;
-    justify-self: center;
-    justify-items: center;
+    max-width: 880px;
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 660px) {
     .cards {
         padding-top: 36px;
     }
