@@ -39,3 +39,4 @@
 @import url(../blocks/overlay/__title/overlay__title.css);
 @import url(../blocks/overlay/__form-input/_type_name/overlay__form-input_type_name.css);
 @import url(../blocks/overlay/__form-input/_type_description/overlay__form-input_type_description.css);
+@import url(../blocks/overlay/_open/overlay_open.css);

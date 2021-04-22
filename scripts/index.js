@@ -18,11 +18,16 @@ const formSubmitHandler = (e) => {
     closeOverlay();
 };
 
+const handleOverlayClick = (e) => {
+    e.target === e.currentTarget ? closeOverlay(e) : console.log('mistake');
+};
+
 openOverlayButton.addEventListener('click', () => {
     overlay.classList.add('overlay_open');
     nameInput.value = profileName.textContent;
     descriptionInput.value = profileDescription.textContent;
 });
 
-closeOverlayButton.addEventListener('click', closeOverlay)
+closeOverlayButton.addEventListener('click', closeOverlay);
+overlay.addEventListener('click', handleOverlayClick);
 formElement.addEventListener('submit', formSubmitHandler);
