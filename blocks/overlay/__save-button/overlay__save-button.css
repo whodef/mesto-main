@@ -1,0 +1,29 @@
+.overlay__save-button {
+    margin-top: 48px;
+    padding: 0;
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 1);
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 17px;
+    outline: none;
+    cursor: pointer;
+}
+
+.overlay__save-button:hover {
+    background: rgba(0, 0, 0, .8);
+    transition: border .1s ease-in-out;
+}
+
+
+@media screen and (max-width: 660px) {
+    .overlay__save-button {
+        margin-top: 28px;
+    }
+}

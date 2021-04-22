@@ -2,6 +2,12 @@
     padding: 0 0 40px;
     width: 142px;
     height: 33px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.logo:hover {
+    color: rgba(0, 0, 0, 1);
+    transition: border .1s ease-in-out;
 }
 
 @media screen and (min-width: 321px) and (max-width: 879px) {

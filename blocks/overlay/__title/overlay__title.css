@@ -1,0 +1,21 @@
+.overlay__title {
+    margin-bottom: 22.25px;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    font-family: 'Inter', Arial, sans-serif;
+    line-height: 22px;
+}
+
+@media screen and (max-width: 660px) {
+    .overlay__title {
+        margin-bottom: 18px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .overlay__title {
+        margin-bottom: 12px;
+        font-size: 20px;
+    }
+}

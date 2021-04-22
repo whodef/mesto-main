@@ -100,6 +100,19 @@
         <p class="footer__copyright">&copy;2021  Mesto Russia</p>
     </footer>
 
+<!-- Всплывающее окно -->
+    <div class="overlay">
+        <div class="overlay__container">
+            <button class="overlay__close-button"></button>
+            <h2 class="overlay__title">Редактировать профиль</h2>
+            <form class="overlay__form" action="#" name="overlayform">
+                <input class="overlay__form-input overlay__form-input_type_name" type="text" value="Жак-Ив Кусто">
+                <input class="overlay__form-input overlay__form-input_type_description" type="text" value="Исследователь океана">
+                <button class="overlay__save-button" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
     <script src="./scripts/index.js"></script>
 </div>
 </body>
