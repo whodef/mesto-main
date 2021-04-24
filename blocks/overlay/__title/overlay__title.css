@@ -1,5 +1,5 @@
 .overlay__title {
-    margin-bottom: 22.25px;
+    margin: 0 0 22.25px;
     font-style: normal;
     font-weight: 900;
     font-size: 24px;
@@ -9,13 +9,13 @@
 
 @media screen and (max-width: 660px) {
     .overlay__title {
-        margin-bottom: 18px;
+        margin: 0 auto 18px;
+        font-size: 18px;
     }
 }
 
 @media screen and (max-width: 320px) {
     .overlay__title {
-        margin-bottom: 12px;
-        font-size: 20px;
+        margin: 0 auto 42px;
     }
 }

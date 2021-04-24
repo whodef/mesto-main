@@ -15,7 +15,6 @@
 @import url(../blocks/profile/__description/profile__description.css);
 @import url(../blocks/profile/__image/profile__image.css);
 @import url(../blocks/profile/__indication/profile__indication.css);
-@import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__caption/profile__caption.css);
 
@@ -37,6 +36,4 @@
 @import url(../blocks/overlay/__form-input/overlay__form-input.css);
 @import url(../blocks/overlay/__save-button/overlay__save-button.css);
 @import url(../blocks/overlay/__title/overlay__title.css);
-@import url(../blocks/overlay/__form-input/_type/_name/overlay__form-input_type_name.css);
-@import url(../blocks/overlay/__form-input/_type/_description/overlay__form-input_type_description.css);
 @import url(../blocks/overlay/_open/overlay_open.css);

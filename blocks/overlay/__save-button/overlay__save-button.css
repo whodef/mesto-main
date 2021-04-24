@@ -12,6 +12,7 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 17px;
+    text-align: center;
     outline: none;
     cursor: pointer;
 }
@@ -25,5 +26,6 @@
 @media screen and (max-width: 660px) {
     .overlay__save-button {
         margin-top: 28px;
+        font-size: 14px;
     }
 }

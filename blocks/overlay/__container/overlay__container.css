@@ -1,12 +1,13 @@
 .overlay__container {
-    padding: 34px 36px 36.5px;
+    padding: 34px 36px 37px;
     position: relative;
     width: 430px;
+    height: 330px;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     background: rgba(255, 255, 255, 1);
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 25px rgba(0, 0, 0, .15);
     border-radius: 10px;
     color: rgba(0, 0, 0, 1);
 }
@@ -26,6 +27,8 @@
 
 @media screen and (max-width: 360px) {
     .overlay__container {
-        width: 240px;
+        padding: 25px 22px;
+        width: 282px;
+        height: 322px;
     }
 }

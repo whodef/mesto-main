@@ -6,7 +6,7 @@
     <meta name="keywords" content="html, css, javascript, practice, yandex, project, portfolio">
     <meta name="description" content="level up your front-end skills, from zero to hero">
     <meta name="author" content="Tatiana">
-    <title>Mesto Russia</title>
+    <title>Место.Россия</title>
     <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="root">
@@ -18,17 +18,14 @@
     <main class="content">
         <section class="profile">
             <img class="profile__image" src="./images/avatar.jpg" alt="Изображение Жака-Ива Кусто">
-            <div class="profile__info">
-                <div class="profile__indication">
-                    <div class="profile__caption">
-                        <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <button class="profile__change-button" type="button"></button>
-                    </div>
-                    <p class="profile__description">Исследователь океана</p>
+            <div class="profile__indication">
+                <div class="profile__caption">
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <button class="profile__change-button" type="button" aria-label="Изменить"></button>
                 </div>
-
+                <p class="profile__description">Исследователь океана</p>
             </div>
-            <button class="profile__add-button" type="button"></button>
+            <button class="profile__add-button" type="button" aria-label="Добавить"></button>
         </section>
 
         <section class="card">
@@ -37,7 +34,7 @@
                     <img class="card__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
                     <div class="card__description">
                         <h2 class="card__description-title">Карачаевск</h2>
-                        <button class="card__like-button" type="button">
+                        <button class="card__like-button" type="button" aria-label="Нравится">
                             <img src="./images/like.svg" alt="Мне понравилось">
                         </button>
                     </div>
@@ -47,7 +44,7 @@
                     <img class="card__image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
                     <div class="card__description">
                         <h2 class="card__description-title">Гора Эльбрус</h2>
-                        <button class="card__like-button" type="button">
+                        <button class="card__like-button" type="button" aria-label="Нравится">
                             <img src="./images/like.svg" alt="Мне понравилось">
                         </button>
                     </div>
@@ -57,7 +54,7 @@
                     <img class="card__image" src="./images/dombue.jpg" alt="Домбай">
                     <div class="card__description">
                         <h2 class="card__description-title">Домбай</h2>
-                        <button class="card__like-button" type="button">
+                        <button class="card__like-button" type="button" aria-label="Нравится">
                             <img src="./images/like.svg" alt="Мне понравилось">
                         </button>
                     </div>
@@ -67,7 +64,7 @@
                     <img class="card__image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
                     <div class="card__description">
                         <h2 class="card__description-title">Гора Эльбрус</h2>
-                        <button class="card__like-button" type="button">
+                        <button class="card__like-button" type="button" aria-label="Нравится">
                             <img src="./images/like.svg" alt="Мне понравилось">
                         </button>
                     </div>
@@ -77,7 +74,7 @@
                     <img class="card__image" src="./images/dombue.jpg" alt="Домбай">
                     <div class="card__description">
                         <h2 class="card__description-title">Домбай</h2>
-                        <button class="card__like-button" type="button">
+                        <button class="card__like-button" type="button" aria-label="Нравится">
                             <img src="./images/like.svg" alt="Мне понравилось">
                         </button>
                     </div>
@@ -87,7 +84,9 @@
                     <img class="card__image" src="./images/karachaevsk.jpg" alt="Карачаево-Черкесия">
                     <div class="card__description">
                         <h2 class="card__description-title">Карачаево-Черкесия</h2>
-                        <button class="card__like-button" type="button">
+                        <button class="card__like-button" type="button" aria-label="Нравится">
+
+
                             <img src="./images/like.svg" alt="Мне понравилось">
                         </button>
                     </div>
@@ -100,14 +99,14 @@
         <p class="footer__copyright">&copy;2021  Mesto Russia</p>
     </footer>
 
-<!-- Всплывающее окно -->
+<!-- Всплывающее окно для изменений в .profile__indication -->
     <div class="overlay">
         <div class="overlay__container">
-            <button class="overlay__close-button"></button>
+            <button class="overlay__close-button" aria-label="Закрыть"></button>
             <h2 class="overlay__title">Редактировать профиль</h2>
-            <form class="overlay__form" action="#" name="overlayform">
-                <input class="overlay__form-input overlay__form-input_type_name" type="text" value="Жак-Ив Кусто">
-                <input class="overlay__form-input overlay__form-input_type_description" type="text" value="Исследователь океана">
+            <form class="overlay__form" action="#" name="overlay-form">
+                <input class="overlay__form-input overlay__form-input_type_name" type="text" name="input-name" value="Жак-Ив Кусто">
+                <input class="overlay__form-input overlay__form-input_type_description" type="text" name="input-description" value="Исследователь океана">
                 <button class="overlay__save-button" type="submit">Сохранить</button>
             </form>
         </div>
