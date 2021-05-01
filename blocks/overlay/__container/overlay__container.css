@@ -12,23 +12,16 @@
     color: rgba(0, 0, 0, 1);
 }
 
-@media screen and (max-width: 879px) {
-    .overlay__container {
-        width: 350px;
-        padding: 17px 18px 18.5px;
-    }
-}
-
 @media screen and (max-width: 660px) {
     .overlay__container {
-        width: 300px;
+        padding: 25px 22px;
+        width: 320px;
+        height: 322px;
     }
 }
 
 @media screen and (max-width: 360px) {
     .overlay__container {
-        padding: 25px 22px;
         width: 282px;
-        height: 322px;
     }
 }
