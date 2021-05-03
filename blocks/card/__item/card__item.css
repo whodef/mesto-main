@@ -1,6 +1,6 @@
 .card__item {
+    position: relative;
     max-width: 282px;
-    /*max-height: 362px;*/
     display: flex;
     flex-direction: column;
 }

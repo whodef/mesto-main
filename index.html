@@ -30,53 +30,7 @@
 
         <section class="card">
             <ul class="card__list">
-                <li class="card__item">
-                    <img class="card__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
-                    <div class="card__description">
-                        <h2 class="card__description-title">Карачаевск</h2>
-                        <button class="card__like-button" type="button" aria-label="Нравится"></button>
-                    </div>
-                </li>
-
-                <li class="card__item">
-                    <img class="card__image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
-                    <div class="card__description">
-                        <h2 class="card__description-title">Гора Эльбрус</h2>
-                        <button class="card__like-button" type="button" aria-label="Нравится"></button>
-                    </div>
-                </li>
-
-                <li class="card__item">
-                    <img class="card__image" src="./images/dombue.jpg" alt="Домбай">
-                    <div class="card__description">
-                        <h2 class="card__description-title">Домбай</h2>
-                        <button class="card__like-button" type="button" aria-label="Нравится"></button>
-                    </div>
-                </li>
-
-                <li class="card__item">
-                    <img class="card__image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
-                    <div class="card__description">
-                        <h2 class="card__description-title">Гора Эльбрус</h2>
-                        <button class="card__like-button" type="button" aria-label="Нравится"></button>
-                    </div>
-                </li>
-
-                <li class="card__item">
-                    <img class="card__image" src="./images/dombue.jpg" alt="Домбай">
-                    <div class="card__description">
-                        <h2 class="card__description-title">Домбай</h2>
-                        <button class="card__like-button" type="button" aria-label="Нравится"></button>
-                    </div>
-                </li>
-
-                <li class="card__item">
-                    <img class="card__image" src="./images/karachaevsk.jpg" alt="Карачаево-Черкесия">
-                    <div class="card__description">
-                        <h2 class="card__description-title">Карачаево-Черкесия</h2>
-                        <button class="card__like-button" type="button" aria-label="Нравится"></button>
-                    </div>
-                </li>
+                <!-- Добавлен <template> --->
             </ul>
         </section>
     </main>
@@ -85,14 +39,39 @@
         <p class="footer__copyright">&copy;2021  Mesto Russia</p>
     </footer>
 
-<!-- Всплывающее окно для изменений в .profile__indication -->
-    <div class="overlay">
+<!-- Шаблон для отображения карточек .card__list --->
+    <template id="card-template">
+        <li class="card__item">
+            <img class="card__image" src="#" alt="Сгенерированное описание">
+            <button class="card__delete-button" type="button" aria-label="Удалить"></button>
+            <div class="card__description">
+                <h2 class="card__description-title"></h2>
+                <button class="card__like-button" type="button" aria-label="Нравится"></button>
+            </div>
+        </li>
+    </template>
+
+<!-- Всплывающее окно для изменений в .profile__indication .profile__change-button -->
+    <div class="overlay" id="change-overlay">
         <div class="overlay__container">
             <button class="overlay__close-button" aria-label="Закрыть"></button>
             <h2 class="overlay__title">Редактировать профиль</h2>
             <form class="overlay__form" action="#" name="overlay-form">
                 <input class="overlay__form-input overlay__form-input_type_name" type="text" name="input-name" value="Жак-Ив Кусто">
                 <input class="overlay__form-input overlay__form-input_type_description" type="text" name="input-description" value="Исследователь океана">
+                <button class="overlay__save-button" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+<!-- Всплывающее окно для изменений в .profile__add-button -->
+    <div class="overlay" id="add-overlay">
+        <div class="overlay__container">
+            <button class="overlay__close-button" aria-label="Закрыть"></button>
+            <h2 class="overlay__title">Новое место</h2>
+            <form class="overlay__form" action="#" name="overlay-form">
+                <input class="overlay__form-input overlay__form-input_type_name" type="text" name="input-name" value="Название">
+                <input class="overlay__form-input overlay__form-input_type_description" type="text" name="input-description" value="Ссылка на картинку">
                 <button class="overlay__save-button" type="submit">Сохранить</button>
             </form>
         </div>
