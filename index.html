@@ -21,11 +21,11 @@
             <div class="profile__indication">
                 <div class="profile__caption">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button class="profile__change-button" type="button" aria-label="Изменить"></button>
+                    <button class="profile__change-button" id="change-profile" type="button" aria-label="Изменить"></button>
                 </div>
                 <p class="profile__description">Исследователь океана</p>
             </div>
-            <button class="profile__add-button" type="button" aria-label="Добавить"></button>
+            <button class="profile__add-button" id="add-new-card" type="button" aria-label="Добавить"></button>
         </section>
 
         <section class="card">
@@ -51,10 +51,19 @@
         </li>
     </template>
 
+<!-- Всплывающее окно для cards -->
+    <div class="overlay" id="">
+        <figure class="overlay__image-container">
+            <button class="overlay__close-button" type="button" aria-label="Закрыть"></button>
+            <img class="overlay__image" src="#" alt="#">
+            <figcaption class="overlay__image-title"></figcaption>
+        </figure>
+    </div>
+
 <!-- Всплывающее окно для изменений в .profile__indication .profile__change-button -->
-    <div class="overlay" id="change-overlay">
+    <div class="overlay" id="change-profile-overlay">
         <div class="overlay__container">
-            <button class="overlay__close-button" aria-label="Закрыть"></button>
+            <button class="overlay__close-button" type="button" aria-label="Закрыть"></button>
             <h2 class="overlay__title">Редактировать профиль</h2>
             <form class="overlay__form" action="#" name="overlay-form">
                 <input class="overlay__form-input overlay__form-input_type_name" type="text" name="input-name" value="Жак-Ив Кусто">
@@ -65,13 +74,13 @@
     </div>
 
 <!-- Всплывающее окно для изменений в .profile__add-button -->
-    <div class="overlay" id="add-overlay">
+    <div class="overlay" id="new-card-overlay">
         <div class="overlay__container">
-            <button class="overlay__close-button" aria-label="Закрыть"></button>
+            <button class="overlay__close-button" type="button" aria-label="Закрыть"></button>
             <h2 class="overlay__title">Новое место</h2>
             <form class="overlay__form" action="#" name="overlay-form">
-                <input class="overlay__form-input overlay__form-input_type_name" type="text" name="input-name" value="Название">
-                <input class="overlay__form-input overlay__form-input_type_description" type="text" name="input-description" value="Ссылка на картинку">
+                <input class="overlay__form-input overlay__form-input_type_name" type="text" name="input-name" placeholder="Название">
+                <input class="overlay__form-input overlay__form-input_type_imageurl" type="text" name="input-imageurl" placeholder="Ссылка на картинку">
                 <button class="overlay__save-button" type="submit">Сохранить</button>
             </form>
         </div>
