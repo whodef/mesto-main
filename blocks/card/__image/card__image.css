@@ -6,3 +6,8 @@
     border-radius: 10px 10px 0 0;
     transition: opacity .1s ease-in-out;
 }
+
+.card__image:hover {
+    opacity: .8;
+    transition: border .1s ease-in-out;
+}

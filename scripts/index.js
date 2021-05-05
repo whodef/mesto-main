@@ -29,7 +29,7 @@ let initialCards = [
 const cardTemplate = document.querySelector('#card-template').content;
 const cardsContainer = document.querySelector('.card__list');
 
-const cards = (name, link) => {
+const getCards = (name, link) => {
     const card = cardTemplate.querySelector('.card__item').cloneNode(true);
     const cardImage = card.querySelector('.card__image');
     const likeBtn = card.querySelector('.card__like-button');
@@ -39,24 +39,47 @@ const cards = (name, link) => {
     cardImage.alt = name;
     card.querySelector('.card__description-title').textContent = name;
 
-    likeBtn.addEventListener('click', (evt) => {
-        evt.target.classList.toggle('card__like-button_active');
+    likeBtn.addEventListener('click', (e) => {
+        e.target.classList.toggle('card__like-button_active');
     });
 
-    deleteBtn.addEventListener('click', (evt) => {
-        evt.preventDefault();
+    deleteBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         card.remove();
     });
 
-    cardImage.addEventListener('click', (evt) => {
-        evt.preventDefault();
-        // TODO: нужно дописать всплывающее окно к карточкам
+    // Реализация всплывающего контейнера с описанием картинок
+    const cardOverlayContainer = document.querySelector('#image-overlay');
+    const cardOverlayImage = cardOverlayContainer.querySelector('.overlay__image');
+    const cardOverlayCaption = cardOverlayContainer.querySelector('.overlay__image-caption');
+    const cardOverlayCloseBtn = cardOverlayContainer.querySelector('.overlay__close-button');
+
+    const openOverlay = () => {
+        cardOverlayContainer.classList.add('overlay_open');
+    };
+
+    const closeOverlay = () => {
+        cardOverlayContainer.classList.remove('overlay_open');
+    };
+
+    cardImage.addEventListener('click', (e) => {
+        e.preventDefault();
+        cardOverlayImage.src = link;
+        cardOverlayImage.alt = name;
+        cardOverlayCaption.textContent = cardOverlayImage.alt;
+        openOverlay(cardOverlayContainer);
     });
+
+    cardOverlayCloseBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeOverlay(cardOverlayContainer);
+    });
+
     return card;
 };
 
 initialCards.forEach((card) => {
-    cardsContainer.append(cards(card.name, card.link));
+    cardsContainer.append(getCards(card.name, card.link));
 });
 
 // Всплывающее окно для изменений в .profile__change-button
@@ -153,9 +176,7 @@ const handleOverlayNewCard = (initialCards, cards) => {
 };
 
 handleOverlayProfile();
-handleOverlayNewCard(initialCards, cards);
-
-// TODO: Плавное открытие и закрытие всех попапов
+handleOverlayNewCard(initialCards, getCards);
 
 
 
