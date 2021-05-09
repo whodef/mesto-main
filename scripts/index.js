@@ -46,7 +46,8 @@ const openOverlay = (elem) => {
 };
 
 const closeOverlay = () => {
-    document.querySelector('.overlay_open').classList.remove('overlay_open');
+    const overlay = document.querySelector('.overlay_open');
+    overlay.classList.remove('overlay_open');
 };
 
 const overlayFormNameInput = () => document.querySelector('.overlay.overlay_open .overlay__form-input_type_name');
@@ -79,7 +80,7 @@ const constructCard = (name, link) => {
         cardOverlayImage.src = link;
         cardOverlayImage.alt = name;
         cardOverlayCaption.textContent = name;
-        cardOverlayContainer.classList.add('overlay_open');
+        openOverlay(cardOverlayContainer);
     });
 
     return card;
@@ -101,15 +102,14 @@ const handleOverlayProfile = () => {
         closeOverlay();
     };
 
-    const openOverlayButton = document.querySelector('#change-profile');
+    overlay.querySelector('.overlay__form').addEventListener('submit', formSubmitHandler);
 
+    const openOverlayButton = document.querySelector('#change-profile');
     openOverlayButton.addEventListener('click', () => {
         openOverlay(overlay);
         overlayFormNameInput().value = profileName.textContent;
         overlayFormExtInput().value = profileDescription.textContent;
-        overlay.querySelector('.overlay__form').addEventListener('submit', formSubmitHandler);
     });
-
 };
 
 // Всплывающее окно для изменений в .profile__add-button
@@ -119,23 +119,23 @@ const handleOverlayNewCard = () => {
 
     const formSubmitHandler = (e) => {
         e.preventDefault();
+
         const name = overlayFormNameInput();
         const url = overlayFormExtInput();
-
         cardsContainer.prepend(constructCard(name.value, url.value));
+
         closeOverlay();
 
         name.value = '';
         url.value = '';
     };
 
-    const openOverlayButton = document.querySelector('#add-new-card');
+    overlay.querySelector('.overlay__form').addEventListener('submit', formSubmitHandler);
 
+    const openOverlayButton = document.querySelector('#add-new-card');
     openOverlayButton.addEventListener('click', () => {
         openOverlay(overlay);
-        overlay.querySelector('.overlay__form').addEventListener('submit', formSubmitHandler);
     });
-
 };
 
 handleOverlayProfile();
