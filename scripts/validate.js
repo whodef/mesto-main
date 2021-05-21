@@ -2,8 +2,8 @@ const initValidate = {
     formSelector: '.overlay__form',
     inputSelector: '.overlay__form-input',
     buttonMode: '.overlay__save-button',
-    inputErrorMode: '.overlay__form-input_state',
-    errorMode: '.overlay__form-error_visible'
+    inputErrorMode: 'overlay__form-input_state',
+    errorMode: 'overlay__form-error_visible'
 };
 
 const checkInputValidity = (formElement, inputElement, initValidate) => {

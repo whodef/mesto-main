@@ -141,8 +141,6 @@ const handleOverlayNewCard = () => {
 handleOverlayNewCard();
 
 document.addEventListener('keydown', (e) => {
-    e.preventDefault();
-
     if (e.key === "Escape") {
         closeOverlay();
     }
