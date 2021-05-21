@@ -62,30 +62,35 @@
 
 <!-- Всплывающее окно для изменений в .profile__indication .profile__change-button -->
     <div class="overlay" id="change-profile-overlay">
-        <div class="overlay__container">
+        <fieldset class="overlay__container">
             <button class="overlay__close-button" type="button" aria-label="Закрыть"></button>
             <h2 class="overlay__title">Редактировать профиль</h2>
-            <form class="overlay__form" action="#" name="overlay-form">
-                <input class="overlay__form-input overlay__form-input_type_name" type="text" name="input-name" value="Жак-Ив Кусто" required>
-                <input class="overlay__form-input overlay__form-input_type_ext" type="text" name="input-description" value="Исследователь океана" required>
+            <form class="overlay__form" action="#" name="overlay-form" novalidate>
+                <input class="overlay__form-input overlay__form-input_type_name" id="edit-name" type="text" name="input-name" value="Жак-Ив Кусто" minlength="2" maxlength="30" required>
+                <span class="overlay__form-error overlay__form-error_visible" id="edit-name-error"></span>
+                <input class="overlay__form-input overlay__form-input_type_ext" id="edit-description" type="text" name="input-description" value="Исследователь океана" minlength="5" maxlength="100" required>
+                <span class="overlay__form-error overlay__form-error_visible" id="edit-description-error"></span>
                 <button class="overlay__save-button" type="submit">Сохранить</button>
             </form>
-        </div>
+        </fieldset>
     </div>
 
 <!-- Всплывающее окно для изменений в .profile__add-button -->
     <div class="overlay" id="new-card-overlay">
-        <div class="overlay__container">
+        <fieldset class="overlay__container">
             <button class="overlay__close-button" type="button" aria-label="Закрыть"></button>
             <h2 class="overlay__title">Новое место</h2>
             <form class="overlay__form" action="#" name="overlay-form">
-                <input class="overlay__form-input overlay__form-input_type_name" type="text" name="input-name" placeholder="Название" required>
-                <input class="overlay__form-input overlay__form-input_type_ext" type="text" name="input-imageurl" placeholder="Ссылка на картинку" required>
+                <input class="overlay__form-input overlay__form-input_type_name" id="card-title" type="text" name="input-name" placeholder="Название" minlength="2" maxlength="50" required>
+                <span class="overlay__form-error overlay__form-error_visible" id="card-title-error"></span>
+                <input class="overlay__form-input overlay__form-input_type_ext" id="card-url" type="url" name="input-imageurl" placeholder="Ссылка на картинку" required>
+                <span class="overlay__form-error overlay__form-error_visible" id="card-url-error"></span>
                 <button class="overlay__save-button" type="submit">Сохранить</button>
             </form>
-        </div>
+        </fieldset>
     </div>
 
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/index.js"></script>
 </div>
 </body>

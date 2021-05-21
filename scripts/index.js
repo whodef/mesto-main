@@ -111,6 +111,7 @@ const handleOverlayProfile = () => {
         overlayFormExtInput().value = profileDescription.textContent;
     });
 };
+handleOverlayProfile();
 
 // Всплывающее окно для изменений в .profile__add-button
 const handleOverlayNewCard = () => {
@@ -137,6 +138,4 @@ const handleOverlayNewCard = () => {
         openOverlay(overlay);
     });
 };
-
-handleOverlayProfile();
 handleOverlayNewCard();
