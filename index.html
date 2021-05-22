@@ -65,10 +65,10 @@
         <fieldset class="overlay__container">
             <button class="overlay__close-button" type="button" aria-label="Закрыть"></button>
             <h2 class="overlay__title">Редактировать профиль</h2>
-            <form class="overlay__form" action="#" name="overlay-form" novalidate>
-                <input class="overlay__form-input overlay__form-input_type_name" id="edit-name" type="text" name="input-name" value="Жак-Ив Кусто" minlength="2" maxlength="30" required>
+            <form class="overlay__form" action="#" name="overlay-form">
+                <input class="overlay__form-input overlay__form-input_type_name" id="edit-name" type="text" name="input-name" placeholder="Имя" value="Жак-Ив Кусто" minlength="2" maxlength="30" required>
                 <span class="overlay__form-error overlay__form-error_visible" id="edit-name-error"></span>
-                <input class="overlay__form-input overlay__form-input_type_ext" id="edit-description" type="text" name="input-description" value="Исследователь океана" minlength="5" maxlength="100" required>
+                <input class="overlay__form-input overlay__form-input_type_ext" id="edit-description" type="text" name="input-description" placeholder="Вид деятельности" value="Исследователь океана" minlength="5" maxlength="100" required>
                 <span class="overlay__form-error overlay__form-error_visible" id="edit-description-error"></span>
                 <button class="overlay__save-button" type="submit">Сохранить</button>
             </form>
@@ -85,7 +85,7 @@
                 <span class="overlay__form-error overlay__form-error_visible" id="card-title-error"></span>
                 <input class="overlay__form-input overlay__form-input_type_ext" id="card-url" type="url" name="input-imageurl" placeholder="Ссылка на картинку" required>
                 <span class="overlay__form-error overlay__form-error_visible" id="card-url-error"></span>
-                <button class="overlay__save-button" type="submit">Сохранить</button>
+                <button class="overlay__save-button" type="submit" disabled>Сохранить</button>
             </form>
         </fieldset>
     </div>

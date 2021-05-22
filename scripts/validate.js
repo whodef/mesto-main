@@ -1,6 +1,7 @@
 const initValidate = {
     formSelector: '.overlay__form',
     inputSelector: '.overlay__form-input',
+    buttonSelector: '.overlay__save-button',
     buttonMode: '.overlay__save-button',
     inputErrorMode: 'overlay__form-input_state',
     errorMode: 'overlay__form-error_visible'
@@ -66,3 +67,17 @@ const enableValidation = (initValidate) => {
     });
 };
 enableValidation(initValidate);
+
+const resetForm = (overlay) => {
+    const inputList = Array.from(overlay.querySelectorAll(initValidate.inputSelector));
+    const submitBtn = overlay.querySelector(initValidate.buttonSelector);
+    const formElement = overlay.querySelector(initValidate.formSelector);
+
+    formElement.reset();
+
+    inputList.forEach(item => {
+        hideInputError(formElement, item, initValidate);
+    });
+
+    submitBtn.disabled = true;
+};
