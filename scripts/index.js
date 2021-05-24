@@ -40,46 +40,42 @@ const addCardFormExtInput = addCardOverlay.querySelector('.overlay__form-input_t
 const viewImageOverlay = document.querySelector('#image-overlay');
 const viewImageContentImage = viewImageOverlay.querySelector('.overlay__image');
 const viewImageContentCaption = viewImageOverlay.querySelector('.overlay__image-caption');
+const cardTemplate = document.querySelector('#card-template').content;
 
-const simulateClick = (elem) => {
-    const simulateClick = new MouseEvent('click', {
-        view: window,
-        bubbles: false,
-        cancelable: false
-    });
-    elem.dispatchEvent(simulateClick);
-};
-
-const escHandler = (e) => {
+const closeOverlayEscListener = (e) => {
     if (e.key !== "Escape") {
         return;
     }
-
     const currentOpenOverlay = document.querySelector('.overlay_open');
-    if (null === currentOpenOverlay) {
-        return;
-    }
-    simulateClick(currentOpenOverlay);
+    closeOverlay(currentOpenOverlay);
 };
 
-const openOverlayHandler = (elem) => {
+const openOverlay = (elem) => {
     elem.classList.add('overlay_open');
-    elem.addEventListener('click', closeOverlayHandler);
+
+    // Реализация постепенного появления оверлея
+    setTimeout(() => {
+        elem.classList.add('overlay_animation-helper');
+    }, 20);
+
+    elem.addEventListener('click', closeOverlayClickListener);
+    // Esc работает только на элементе документ, по крайней мере, в хроме на линуксе
+    document.addEventListener('keyup', closeOverlayEscListener);
 };
 
-const closeOverlayHandler = (e) => {
+const closeOverlay = (elem) => {
+    elem.classList.remove('overlay_animation-helper', 'overlay_open');
+    elem.removeEventListener('click', closeOverlayClickListener);
+    document.removeEventListener('keyup', closeOverlayEscListener);
+};
+
+const closeOverlayClickListener = (e) => {
     const elem = e.target;
-    if (!(elem.classList.contains('overlay') || elem.classList.contains('overlay__close-button'))) {
-        return;
+    if(elem.classList.contains('overlay')) {
+        closeOverlay(elem);
+    } else if (elem.classList.contains('overlay__close-button')) {
+        closeOverlay(elem.closest('.overlay'));
     }
-
-    let overlay = elem;
-    if(!elem.classList.contains('overlay')) {
-        overlay = elem.closest('.overlay');
-    }
-
-    overlay.classList.remove('overlay_open');
-    overlay.removeEventListener('click', closeOverlayHandler);
 };
 
 const changeProfileFormSubmitHandler = (e) => {
@@ -88,40 +84,18 @@ const changeProfileFormSubmitHandler = (e) => {
     profileDescriptionOnPage.textContent = changeProfileFormExtInput.value;
 
     const overlay = e.target.closest('.overlay');
-    simulateClick(overlay);
+    closeOverlay(overlay);
 };
 
 const addCardFormSubmitHandler = (e) => {
     e.preventDefault();
-    const name = addCardFormNameInput;
-    const url = addCardFormExtInput;
-
-    cardsContainer.prepend(constructCard(name.value, url.value));
+    cardsContainer.prepend(constructCard(addCardFormNameInput.value, addCardFormExtInput.value));
 
     const overlay = e.target.closest('.overlay');
-    simulateClick(overlay);
-
-    name.value = '';
-    url.value = '';
+    closeOverlay(overlay);
 };
 
-changeProfileOpenOverlayBtn.addEventListener('click', () => {
-    openOverlayHandler(changeProfileOverlay);
-    changeProfileFormNameInput.value = profileNameOnPage.textContent;
-    changeProfileFormExtInput.value = profileDescriptionOnPage.textContent;
-});
-
-addCardOpenOverlayBtn.addEventListener('click', () => {
-    resetForm(addCardOverlay);
-    openOverlayHandler(addCardOverlay);
-});
-
-document.addEventListener('keydown', escHandler);
-changeProfileOverlay.querySelector('.overlay__form').addEventListener('submit', changeProfileFormSubmitHandler);
-addCardOverlay.querySelector('.overlay__form').addEventListener('submit', addCardFormSubmitHandler);
-
 const constructCard = (name, link) => {
-    const cardTemplate = document.querySelector('#card-template').content;
     const card = cardTemplate.querySelector('.card__item').cloneNode(true);
     const cardImage = card.querySelector('.card__image');
     const likeBtn = card.querySelector('.card__like-button');
@@ -144,10 +118,25 @@ const constructCard = (name, link) => {
         viewImageContentImage.src = link;
         viewImageContentImage.alt = name;
         viewImageContentCaption.textContent = name;
-        openOverlayHandler(viewImageOverlay);
+        openOverlay(viewImageOverlay);
     });
     return card;
 };
+
+changeProfileOpenOverlayBtn.addEventListener('click', () => {
+    resetForm(changeProfileOverlay);
+    openOverlay(changeProfileOverlay);
+    changeProfileFormNameInput.value = profileNameOnPage.textContent;
+    changeProfileFormExtInput.value = profileDescriptionOnPage.textContent;
+});
+
+addCardOpenOverlayBtn.addEventListener('click', () => {
+    resetForm(addCardOverlay);
+    openOverlay(addCardOverlay);
+});
+
+changeProfileOverlay.querySelector('.overlay__form').addEventListener('submit', changeProfileFormSubmitHandler);
+addCardOverlay.querySelector('.overlay__form').addEventListener('submit', addCardFormSubmitHandler);
 
 initialCards.forEach((card) => {
     cardsContainer.append(constructCard(card.name, card.link));
