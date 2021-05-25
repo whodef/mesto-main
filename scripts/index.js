@@ -43,21 +43,14 @@ const viewImageContentCaption = viewImageOverlay.querySelector('.overlay__image-
 const cardTemplate = document.querySelector('#card-template').content;
 
 const closeOverlayEscListener = (e) => {
-    if (e.key !== "Escape") {
-        return;
+    if (e.key === "Escape") {
+        const currentOpenOverlay = document.querySelector('.overlay_open');
+        closeOverlay(currentOpenOverlay);
     }
-    const currentOpenOverlay = document.querySelector('.overlay_open');
-    closeOverlay(currentOpenOverlay);
 };
 
 const openOverlay = (elem) => {
     elem.classList.add('overlay_open');
-
-    // Реализация постепенного появления оверлея
-    setTimeout(() => {
-        elem.classList.add('overlay_animation-helper');
-    }, 20);
-
     elem.addEventListener('click', closeOverlayClickListener);
     // Esc работает только на элементе документ, по крайней мере, в хроме на линуксе
     document.addEventListener('keyup', closeOverlayEscListener);
@@ -71,10 +64,9 @@ const closeOverlay = (elem) => {
 
 const closeOverlayClickListener = (e) => {
     const elem = e.target;
-    if(elem.classList.contains('overlay')) {
-        closeOverlay(elem);
-    } else if (elem.classList.contains('overlay__close-button')) {
-        closeOverlay(elem.closest('.overlay'));
+    const currentOpenOverlay = document.querySelector('.overlay_open');
+    if (elem.classList.contains('overlay') || elem.classList.contains('overlay__close-button')) {
+        closeOverlay(currentOpenOverlay);
     }
 };
 

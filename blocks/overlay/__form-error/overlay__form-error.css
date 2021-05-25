@@ -1,6 +1,6 @@
 .overlay__form-error {
     visibility: hidden;
-    margin: 5px 0 4px;
+    margin: 0 0 4px;
     font-size: 12px;
     line-height: 15px;
     color: rgba(255, 0, 0, 1);
