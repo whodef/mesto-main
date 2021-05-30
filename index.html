@@ -65,7 +65,7 @@
         <fieldset class="overlay__container">
             <button class="overlay__close-button" type="button" aria-label="Закрыть"></button>
             <h2 class="overlay__title">Редактировать профиль</h2>
-            <form class="overlay__form" action="#" name="overlay-form">
+            <form class="overlay__form" action="#" name="overlay-form" novalidate>
                 <div class="overlay__form-input-set">
                     <input class="overlay__form-input overlay__form-input_type_name" id="edit-name" type="text" name="input-name" placeholder="Имя" value="Жак-Ив Кусто" minlength="2" maxlength="30" required>
                     <span class="overlay__form-error overlay__form-error_visible" id="edit-name-error"></span>
@@ -84,7 +84,7 @@
         <fieldset class="overlay__container">
             <button class="overlay__close-button" type="button" aria-label="Закрыть"></button>
             <h2 class="overlay__title">Новое место</h2>
-            <form class="overlay__form" action="#" name="overlay-form">
+            <form class="overlay__form" action="#" name="overlay-form" novalidate>
                 <div class="overlay__form-input-set">
                     <input class="overlay__form-input overlay__form-input_type_name" id="card-title" type="text" name="input-name" placeholder="Название" minlength="2" maxlength="50" required>
                     <span class="overlay__form-error overlay__form-error_visible" id="card-title-error"></span>
@@ -98,8 +98,9 @@
         </fieldset>
     </div>
 
-    <script src="./scripts/validate.js"></script>
-    <script src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/Card.js"></script>
+    <script type="module" src="./scripts/FormValidator.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
 </div>
 </body>
 </html>
