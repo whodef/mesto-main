@@ -31,7 +31,7 @@ export default class Card {
         cardImage.alt = this._name;
 
         likeButton.addEventListener('click', this._handleLike);
-        cardImage.addEventListener('click', this._handleCardClick);
+        cardImage.addEventListener('click', () => this._handleCardClick(this._name, this._link));
         deleteButton.addEventListener('click', this._handleRemove);
 
         return this._cardWrapper;

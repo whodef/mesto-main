@@ -77,8 +77,8 @@ const closeOverlay = ((elem) => {
 
 const closeOverlayClickListener = ((e) => {
     const elem = e.target;
-    const currentOpenOverlay = document.querySelector('.overlay_open');
     if (elem.classList.contains('overlay') || elem.classList.contains('overlay__close-button')) {
+        const currentOpenOverlay = document.querySelector('.overlay_open');
         closeOverlay(currentOpenOverlay);
     }
 });
@@ -91,10 +91,9 @@ const closeOverlayEscListener = ((e) => {
 });
 // -------------------------------------
 
-const cardImgClickListener = ((e) => {
-    const cardImage = e.target;
-    viewImageContentImage.src = cardImage.src;
-    viewImageContentImage.alt = cardImage.alt;
+const cardImgClickListener = ((name, link) => {
+    viewImageContentImage.src = link;
+    viewImageContentImage.alt = name;
     viewImageContentCaption.textContent = viewImageContentImage.alt;
     openOverlay(viewImageOverlay);
 });
@@ -103,18 +102,18 @@ const changeProfileFormSubmitHandler = ((e) => {
     e.preventDefault();
     profileNameOnPage.textContent = changeProfileFormNameInput.value;
     profileDescriptionOnPage.textContent = changeProfileFormExtInput.value;
-
-    const overlay = e.target.closest('.overlay');
-    closeOverlay(overlay);
+    closeOverlay(changeProfileOverlay);
 });
+
+const createCard = (name, link) => {
+    const card = new Card(name, link, cardTemplate, cardImgClickListener);
+    return card.constructCard();
+}
 
 const addCardFormSubmitHandler = ((e) => {
     e.preventDefault();
-    const card = new Card(addCardFormNameInput.value, addCardFormExtInput.value, cardTemplate, cardImgClickListener);
-    cardsContainer.prepend(card.constructCard());
-
-    const overlay = e.target.closest('.overlay');
-    closeOverlay(overlay);
+    cardsContainer.prepend(createCard(addCardFormNameInput.value, addCardFormExtInput.value));
+    closeOverlay(addCardOverlay);
 });
 
 changeProfileOpenOverlayBtn.addEventListener('click', () => {
@@ -134,8 +133,7 @@ changeProfileOverlay.querySelector('.overlay__form').addEventListener('submit', 
 addCardOverlay.querySelector('.overlay__form').addEventListener('submit', addCardFormSubmitHandler);
 
 initialCards.forEach((item) => {
-    const card = new Card(item.name, item.link, cardTemplate, cardImgClickListener);
-    cardsContainer.append(card.constructCard());
+    cardsContainer.append(createCard(item.name, item.link));
 });
 
 forms.forEach(item => {
